@@ -1,0 +1,34 @@
+\chapter{Introduction}
+%\lipsum[2-4]
+
+\section{Visual attention modeling, deep learning and chess expertise}
+
+Our work is part of the Ceege project \footnote{\url{https://ceege.inria.fr/}}, a multidisciplinary research project, which aim to produce a mental model of chess players to predict their expertise. We present in this report our work on modeling visual attention of chess players for problem solving tasks.
+
+One of the particularity of Humans is there incredible ability to discriminate and select information from their surrounding world instead of processing entire scenes all at once. This selective attention is  really important and allows us to quickly interpret and understand our environment to interact with it. The simulation of this process is commonly referred as visual attention prediction or visual saliency detection. It is a very active research topic in computer vision and neuroscience. Modelling visual attention not only allows us to understand a bit more how human visual system works but it has also a lot of applications. Among them we have object recognition/detection \cite{saliencydetection,saliencydetectionvideo,Buso2015}, action recognition \cite{DBLP:journals/corr/SafaeiF17,phdthesis}, object segmentation \cite{10.1007/978-3-319-01796-9_31,7984578}, or  even applications in computer graphics \cite{3Dshapevisualattention,phdthesis2}.\\ 
+
+The sub-branch of machine learning, called Deep learning consists of multiple layer of neurons applying non linear function on large amount of data to extract features from it and learn them. These deep learning algorithms have seen their popularity increase for the past 10 years due to more powerful graphical processing units (GPUs) and larger quantity of data \cite{imagenet_cvpr09} and more powerful algorithms \cite{NIPS2012_4824}. But the general idea behind deep learning was already there from the 1990s, but their importance decrease with support vector machines (SVMs). Convolutional neural networks (CNNs) are multistage architecture composed of non-linear layer and primarily convolution, extracting features from large dataset, to classify it, do detection/segmentation tasks  or coupled with other methods such as Natural language processing (NLP), or reinforcement learning (RL) can be used for other task such as playing games \cite{DBLP:journals/corr/MnihKSGAWR13}, controlling robots \cite{DBLP:journals/corr/Amarjyoti17}, and translating languages into others   \cite{DBLP:journals/corr/ChoMGBSB14}or semantic segmentation \cite{shen2014learning}. More about them can be found in Annexe \ref{Annexe:deeplearning}.\\
+
+chess expertise
+
+Modeling visual attention for chess players has several benefits. Being able to predict where chess players depending on their level would look at, would allow us for a given player to assess his level depending on where he looks. This could also be a way to help players, by highlighting relations and pattern between pieces that are relevant. Or even challenging players by blurring the part of the board they would look at.
+
+
+
+
+
+\section{Premises and requirements}
+
+The problem behind this project is to create a model able to create a prediction of chess players attention. The model, given a picture of a chessboard in a specific configuration, should be able to produce a salient map illustrating region that would be attended by a chess player. The model should be based on a deep learning approach, trained on eye-gazing data captured from chess players doing problem solving tasks.
+
+In this report we are going to appraise if it is possible to model visual attention of chess players using deep learning techniques and eye-gazing heatmaps from chess players. We will also see if it is possible to use our data as they are and what processing should be done. Finally we investigate the creation of a new dataset to help the modelling of visual attention for chess problem solving task.
+
+
+
+
+\section{}
+ 
+Approx  1 to 2  page description of the scientific approach or approaches to a solution and how it was   investigated and evaluated.  Present a summary of the principal results obtained
+
+\section{}
+Summarize the contents of the subsections of each chapter. Give the topics addressed and summarize what is written in each chapter. 

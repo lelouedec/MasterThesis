@@ -1,0 +1,49 @@
+\chapter{Conclusion and Discussion}
+
+From what we have seen in this report, training an auto-encoder network for the task of visual attention prediction is a difficult and very data dependent task. However we have shown that using data augmentation and task driven data, this task was possible. In this conclusion chapter we are going to review our results and assess them in relation to our starting hypothesis. Then we will discuss our work and what we have achieved and talk about where it could lead.
+\section{Conclusion}
+\subsection{Can we model Chess players visual attention?}
+
+The answer to our research question is yes. Visual attention has already been a very proficient field of computer vision and Deep learning. For natural images several Deep models have shown great performances and suggest further improvement in the near future. Concerning visual attention for chess players our first attempt to model shows promising results. We showed that a network of the auto-encoder shape was able to learn to produce saliency map of the predicted attention of chess players. While we focus mainly on the Bottom-up approach for visual attention prediction, our model was able to extract features and patterns from limited data.
+
+
+\subsection{Pretraining the network, improves its efficiency}
+
+Concerning prior training of our model, we have proposed two main strategies. The first one is about using well known visual attention prediction dataset to train the decoder part into transforming features to salient or not regions. The second strategies is based on leading the way our network learn the pieces and moves. The first strategy manifested better performances and closer to the groundtruth results. However it was a bit struggling to generalize to new configurations we created, displaying some salient areas around the boundaries of the board.
+However pretraining the decoder part of the network with such dataset seems to be a good idea as a way to initialize its weights.
+\subsection{Is our top-down approach effective?}
+
+Even if our top-down strategy of a new dataset leading the network to learn pieces and moves at the same time, proved to be working to produce saliency map when no visual attention prediction dataset is available. We will discuss how it could be improved in the discussion part of the report (Chapter \ref{chapter:discussion}), but we can assess some things about its performances:
+\begin{itemize}
+    \item The bias (more openings, so there are more salient areas on the player side) we announced in the method chapter, is verified as seen in figure \ref{fig:newonly}. However it is partially overthrown after training on the augmented dataset.
+    \item The results from network pretrained on this dataset, are showing smaller salient areas focused on pieces. This is a direct consequence of how the dataset has been created, but is interesting as it correspond more to how beginner/intermediate players would look at the board.
+    \item The network seems to be recognizing more pieces and their relation than pattern made by them. If we want to predict visual attention for beginner/intermediate players it is a good thing, but not for expert payers. However it shows that it is possible for a network to learn spatial relationship on top of pieces detection, just by using new data.
+\end{itemize}
+
+\subsection{Data augmentation}
+
+As seen in section \ref{section:augmentation}, data augmentation is improving performances of our network when pretraining on our new dataset, but not really for other pretraining strategies. The amount of data added, is improving the locations of salient areas and what they are covering rather than the correspondence between the saliency map created and the groundtruth. We can definitely conclude that augmenting the data for our problem is useful especiall
+
+
+\section{Discussion}
+\subsection{How to improve our data}
+
+Concerning the data we had to train our network, there several things we can say for its improvement :
+\begin{itemize}
+    \item Firstly its quantity. With only 11 configurations and around 30 users, it was clearly not enough for a Deep learning approach to be able to model and generalize our network results. The amount of users is sufficient but the number of configuration is not. One way to improve that would be to record eye tracking data for players playing full games for example during online tournaments  or even when casually training. With such data we could cover way more configurations and get more eye tracking data and from a larger panel of players expertise.
+    \item Data should be big enough to create groups based on players skill. It has been shown in previous work that for board games such as chess, players depending on their expertise don't look at the game the same way. Doing this separation we could have 3 different networks all pretrained on the whole data, but finetuned on data from the 3 different players group : begginer, intermediates, experts. We would then have 3 different network able of modeling visual attention for their respective expertise group.
+\end{itemize}
+
+\subsection{New combination of top down and bottom up approach}
+In this project we have seen that modeling visual attention for chess players is possible. This have been done mostly using a bottom up approach where the network base its prediction over graphical features. Patterns an configuration can be learned as they are extracted from the board's image itself. 
+In the second part of the project we have worked on training our network on a more top-down approach where we highlight important pieces for each moves. 
+An other way to learn visual attention based on the task is to learn how to execute the task. Here for chess the task is simple : win the game base on the rules of the game. A lot of work has been done on teaching chess expertise to computer from deep blue \cite{} to more recent work as AlphaZero \cite{}.
+An idea to produce visual attention from chess expertise would be to use at each round the moves investigated by the network and highlight them. Doing so a map of salient pieces would appear.
+With a bottom up and topdown maps we would need to find a way to combine them and learn from their combination. An weighted averaging between the too saliency map or a combination of loss would be techniques to investigate. With such two-ways network we could center salient area around moves to play and using at the same time the patterns learned from the board.\\
+
+In the end we have open the investigation concerning visual attention prediction for chess players. This problem could also concern other board games such as GO, where the model used and its training would be the same, with just a variation of the data and game rules.
+
+
+
+
+%\lipsum[2-4]
